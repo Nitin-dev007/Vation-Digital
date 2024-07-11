@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<workspaceFilter version="1.0">
+    <filter root="/apps/cmscoeinterview/clientlibs"/>
+    <filter root="/apps/cmscoeinterview/components"/>
+    <filter root="/apps/cmscoeinterview/i18n"/>
+</workspaceFilter>

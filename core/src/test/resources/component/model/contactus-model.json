@@ -1,0 +1,13 @@
+{
+"jcr:primaryType": "nt:unstructured",
+"jcr:createdBy": "admin",
+"subject": "Subject",
+"jcr:lastModifiedBy": "admin",
+"jcr:created": "Thu Dec 15 2022 22:54:21 GMT+0530",
+"name": "Your Name",
+"email": "Your Email",
+"buttonText": "SEND MESSAGE",
+"message": "Message",
+"jcr:lastModified": "Mon Dec 19 2022 17:09:31 GMT+0530",
+"sling:resourceType": "cmscoeinterview/components/contactus"
+}

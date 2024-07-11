@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<workspaceFilter version="1.0">
+    <filter root="/conf/cmscoeinterview" mode="merge"/>
+    <filter root="/content/cmscoeinterview" mode="merge"/>
+	<filter root="/content/dam/cmscoeinterview" mode="merge"/>
+	<filter root="/content/experience-fragments/cmscoeinterview" mode="merge"/>
+    <filter root="/content/dam/cmscoeinterview/asset.jpg" mode="merge"/>
+	<filter root="/conf/cmscoeinterview/settings" mode="merge"/>
+	<filter root="/conf/cmscoeinterview/settings/dam" mode="merge"/>
+	<filter root="/conf/cmscoeinterview/settings/dam/cfm" mode="merge"/>
+	<filter root="/conf/cmscoeinterview/settings/dam/cfm/models" mode="merge"/>
+    <filter root="/content/dam/cmscoeinterview/content-fragement" mode="merge"/>
+	<filter root="/conf/global/settings/workflow/models/cmscoe---activation-model" mode="merge"/>
+	<filter root="/conf/global/settings/workflow/launcher" mode="merge"/>
+    <filter root="/conf/global/settings/workflow/models/update-expire-date" mode="merge"/>
+	<filter root="/var/workflow/models/cmscoe---activation-model" mode="merge"/>
+    <filter root="/var/workflow/models/update-expire-date" mode="merge"/>
+</workspaceFilter>

@@ -1,0 +1,86 @@
+<html>
+ <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+     <script type="text/javascript" src="//code.jquery.com/jquery-1.10.2.js"></script>
+     <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+
+<script>
+$(document).ready(function() {
+$('.addBtn').on('click', function () {
+         var currentRow=$(this).closest("tr"); 
+         var col1=currentRow.find("td:eq(0)").text(); // get current row 1st TD value
+  
+  
+  // Make an AJAX call to the Servlet
+    $.ajax({
+      type: "GET",
+      url: "/bin/servlet/delete",
+      data: { col1: col1},
+      success: function(response) {
+        // Handle the response from the Servlet
+		alert(col1 +" deleted");
+      }
+    });
+  
+  
+  });
+});
+
+ $(document).ready(function () {
+        $(".btnShow").click(function () {
+        var currentRow=$(this).closest("tr"); 
+        var col1=currentRow.find("td:eq(0)").text();
+        var col2=currentRow.find("td:eq(1)").text();
+        var col3=currentRow.find("td:eq(2)").text();
+        var col4=currentRow.find("td:eq(3)").text();
+        $('#name').val(col1);
+		$('#name').prop('disabled', true);
+        $('#email').val(col2);
+        $('#subject').val(col3);
+        $('#message').val(col4);
+
+    });
+ });
+
+
+</script>
+<style>
+table, th, td {
+  border:3px solid #FB5B21 !important;
+  color: #FFFFFF;
+}
+
+.bg-dark {
+background-color: #222429 !important;
+}
+</style>
+<body>
+
+<sly data-sly-use.formDataTableModel="com.cmscoe.interview.core.models.FormDataTableModel"/>
+
+<table style="width:100%" class="bg-dark">
+  <tr>
+    <th>${properties.name}</th>
+    <th>${properties.email}</th>
+    <th>${properties.subject}</th>
+	<th>${properties.message}</th>
+	<th>Edit</th>
+    <th>Delete</th>
+  </tr>
+  <div data-sly-list="${formDataTableModel.formDataList}">
+  <tr>
+    <td>${item.name}</td>
+    <td>${item.email}</td>
+    <td>${item.subject}</td>
+	<td>${item.message}</td>
+    <td  class="btnShow"><a href="#" class="nav-item nav-link active">Edit</a> </td>
+	<td class="addBtn"><a href="#" class="nav-item nav-link active">Delete</a> </td>
+  </tr>
+  </div>
+</table>
+</body>
+
+
+</html>
+

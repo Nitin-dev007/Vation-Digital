@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:primaryType="cq:Page">
+    <jcr:content
+        cq:lastModified="{Date}2022-12-20T22:05:57.529+05:30"
+        cq:lastModifiedBy="admin"
+        cq:tags="[]"
+        cq:template="/conf/cmscoeinterview/settings/wcm/templates/xf-web-variation"
+        cq:xfMasterVariation="{Boolean}true"
+        cq:xfVariantType="web"
+        jcr:primaryType="cq:PageContent"
+        jcr:title="Footer"
+        sling:resourceType="cmscoeinterview/components/xfpage">
+        <root
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="cmscoeinterview/components/container"
+            layout="responsiveGrid">
+            <footer
+                jcr:created="{Date}2022-12-15T22:49:41.808+05:30"
+                jcr:createdBy="admin"
+                jcr:lastModified="{Date}2022-12-20T22:01:25.892+05:30"
+                jcr:lastModifiedBy="admin"
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="cmscoeinterview/components/footer"
+                address=" 123 Street, New York, USA"
+                email=" info@example.com"
+                mobNumber=" +012 345 67890"
+                newsletterDescription="Amet justo diam dolor rebum lorem sit stet sea justo kasd"
+                newsletterTitle="SUBSCRIBE OUR NEWSLETTER"
+                title="GET IN TOUCH">
+                <quickLinksList jcr:primaryType="nt:unstructured">
+                    <item0
+                        jcr:primaryType="nt:unstructured"
+                        quickLinksTitle="Home"
+                        quickLinksUrl="/content/cmscoeinterview/us/en/home-page"/>
+                    <item1
+                        jcr:primaryType="nt:unstructured"
+                        quickLinksTitle="About Us"
+                        quickLinksUrl="/content/cmscoeinterview/us/en/home-page"/>
+                    <item2
+                        jcr:primaryType="nt:unstructured"
+                        quickLinksTitle="Class Schedule"
+                        quickLinksUrl="/content/cmscoeinterview/us/en/home-page"/>
+                    <item3
+                        jcr:primaryType="nt:unstructured"
+                        quickLinksTitle="Our Trainers"
+                        quickLinksUrl="/content/cmscoeinterview/us/en/home-page"/>
+                    <item4
+                        jcr:primaryType="nt:unstructured"
+                        quickLinksTitle="Latest Blog"
+                        quickLinksUrl="/content/cmscoeinterview/us/en/home-page"/>
+                    <item5
+                        jcr:primaryType="nt:unstructured"
+                        quickLinksTitle="Contact Us"
+                        quickLinksUrl="/content/cmscoeinterview/us/en/home-page"/>
+                </quickLinksList>
+                <popularLinksList jcr:primaryType="nt:unstructured">
+                    <item0
+                        jcr:primaryType="nt:unstructured"
+                        popularLinksTitle="Home"
+                        popularLinksUrl="/content/cmscoeinterview/us/en/home-page"/>
+                    <item1
+                        jcr:primaryType="nt:unstructured"
+                        popularLinksTitle="About Us"
+                        popularLinksUrl="/content/cmscoeinterview/us/en/home-page"/>
+                    <item2
+                        jcr:primaryType="nt:unstructured"
+                        popularLinksTitle="Class Schedule"
+                        popularLinksUrl="/content/cmscoeinterview/us/en/home-page"/>
+                    <item3
+                        jcr:primaryType="nt:unstructured"
+                        popularLinksTitle="Our Trainers"
+                        popularLinksUrl="/content/cmscoeinterview/us/en/home-page"/>
+                    <item4
+                        jcr:primaryType="nt:unstructured"
+                        popularLinksTitle="Latest Blog"
+                        popularLinksUrl="/content/cmscoeinterview/us/en/home-page"/>
+                    <item5
+                        jcr:primaryType="nt:unstructured"
+                        popularLinksTitle="Contact Us"
+                        popularLinksUrl="/content/cmscoeinterview/us/en/home-page"/>
+                </popularLinksList>
+            </footer>
+        </root>
+    </jcr:content>
+</jcr:root>

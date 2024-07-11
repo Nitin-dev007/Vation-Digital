@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:dam="http://www.day.com/dam/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:mix="http://www.jcp.org/jcr/mix/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:isCheckedOut="{Boolean}true"
+    jcr:mixinTypes="[mix:referenceable,mix:versionable]"
+    jcr:primaryType="dam:Asset"
+    jcr:uuid="a7233dad-f250-4151-a00e-d38fb83b086e">
+    <jcr:content
+        cq:name="adolfo"
+        cq:parentPath="/content/dam/cmscoeinterview/content-fragement"
+        jcr:lastModified="{Date}2022-12-28T18:58:25.811+05:30"
+        jcr:lastModifiedBy="admin"
+        jcr:primaryType="dam:AssetContent"
+        jcr:title="Adolfo"
+        contentFragment="{Boolean}true"
+        lastFragmentSave="{Date}2022-12-28T18:58:25.811+05:30">
+        <data
+            cq:model="/conf/cmscoeinterview/settings/dam/cfm/models/form"
+            jcr:primaryType="nt:unstructured">
+            <master
+                jcr:mixinTypes="[cq:Taggable,dam:cfVariationNode]"
+                jcr:primaryType="nt:unstructured"
+                email="adolfo@softtek.com"
+                email_x0040_LastModified="{Date}2022-12-28T18:58:25.790+05:30"
+                message="message"
+                message_x0040_LastModified="{Date}2022-12-28T18:58:25.792+05:30"
+                name="Adolfo"
+                name_x0040_LastModified="{Date}2022-12-28T18:58:25.790+05:30"
+                subject="subject"
+                subject_x0040_LastModified="{Date}2022-12-28T18:58:25.792+05:30"/>
+        </data>
+        <metadata
+            jcr:mixinTypes="[cq:Taggable]"
+            jcr:primaryType="nt:unstructured"/>
+        <related jcr:primaryType="nt:unstructured"/>
+    </jcr:content>
+</jcr:root>

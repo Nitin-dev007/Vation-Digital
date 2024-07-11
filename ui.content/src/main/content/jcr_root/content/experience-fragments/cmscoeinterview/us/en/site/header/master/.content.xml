@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:primaryType="cq:Page">
+    <jcr:content
+        cq:lastModified="{Date}2022-12-20T22:01:14.999+05:30"
+        cq:lastModifiedBy="admin"
+        cq:tags="[]"
+        cq:template="/conf/cmscoeinterview/settings/wcm/templates/xf-web-variation"
+        cq:xfMasterVariation="{Boolean}true"
+        cq:xfVariantType="web"
+        jcr:primaryType="cq:PageContent"
+        jcr:title="Header"
+        sling:resourceType="cmscoeinterview/components/xfpage">
+        <root
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="cmscoeinterview/components/container"
+            layout="simple">
+            <logo/>
+            <navigation
+                jcr:created="{Date}2022-12-15T23:21:20.062+05:30"
+                jcr:createdBy="admin"
+                jcr:lastModified="{Date}2022-12-20T22:01:14.995+05:30"
+                jcr:lastModifiedBy="admin"
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="cmscoeinterview/components/navigation"
+                buttonText="Join Us"
+                buttonUrl="#"
+                email="info@example.com"
+                menu="[HOME,ABOUT,CLASSES,TRAINERS]"
+                mobNumber="+012 345 6789"
+                title="Gymster">
+                <titleList jcr:primaryType="nt:unstructured">
+                    <item0
+                        jcr:primaryType="nt:unstructured"
+                        title="Home"
+                        url="/content/cmscoeinterview/us/en/home-page"/>
+                    <item1
+                        jcr:primaryType="nt:unstructured"
+                        title="ABOUT"
+                        url="/content/cmscoeinterview/us/en/home-page"/>
+                    <item2
+                        jcr:primaryType="nt:unstructured"
+                        title="CLASSES"
+                        url="/content/cmscoeinterview/us/en/home-page"/>
+                    <item3
+                        jcr:primaryType="nt:unstructured"
+                        title="TRAINERS"
+                        url="/content/cmscoeinterview/us/en/home-page"/>
+                    <item4
+                        jcr:primaryType="nt:unstructured"
+                        title="CONTACT"
+                        url="/content/cmscoeinterview/us/en/home-page"/>
+                </titleList>
+            </navigation>
+            <separator
+                jcr:created="{Date}2022-12-15T23:22:05.601+05:30"
+                jcr:createdBy="admin"
+                jcr:lastModified="{Date}2022-12-15T23:22:05.601+05:30"
+                jcr:lastModifiedBy="admin"
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="cmscoeinterview/components/separator"/>
+        </root>
+    </jcr:content>
+</jcr:root>

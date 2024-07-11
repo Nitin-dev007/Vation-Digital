@@ -1,0 +1,58 @@
+ <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+$(document).ready(function() {
+  $("#myForm").submit(function(event) {
+    event.preventDefault(); // Prevent the form from being submitted
+    var name = $("#name").val(); // Get the value of the name field
+    var email = $("#email").val(); // Get the value of the email field
+	var subject = $("#subject").val(); 
+	var message = $("#message").val(); 
+
+    // Make an AJAX call to the Servlet
+    $.ajax({
+      type: "GET",
+      url: "/bin/servlet/create",
+      data: { name: name, email: email, subject: subject, message: message},
+      success: function(response) {
+        // Handle the response from the Servlet
+		alert("success");
+		$('#myForm')[0].reset();
+      }
+    });
+  });
+});
+
+</script>
+
+<sly data-sly-use.contactUsModel="com.cmscoe.interview.core.models.ContactUsModel"/>
+<sly data-sly-test="${contactUsModel.name}">
+<div class="row g-0">
+            <div class="col-lg-12">
+                <div class="bg-dark p-5">
+                    <form id="myForm">
+                        <div class="row g-3">
+                            <div class="col-6">
+                                <input type="text" id="name" class="form-control bg-light border-0 px-4" placeholder="${contactUsModel.name}" style="height: 55px;">
+                            </div>
+                            <div class="col-6">
+                                <input type="email" id="email" class="form-control bg-light border-0 px-4" placeholder="${contactUsModel.email}" style="height: 55px;">
+                            </div>
+                            <div class="col-12">
+                                <input type="text" id="subject" class="form-control bg-light border-0 px-4" placeholder="${contactUsModel.subject}" style="height: 55px;">
+                            </div>
+                            <div class="col-12">
+                                <textarea id="message" class="form-control bg-light border-0 px-4 py-3" rows="4" placeholder="${contactUsModel.message}"></textarea>
+                            </div>
+                            <div class="col-12">
+                                <button class="btn btn-primary w-100 py-3" type="submit">${contactUsModel.buttonText}</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+		</sly>
+		<sly data-sly-test="${wcmmode.edit && !contactUsModel.name}">
+		<div class="cq-placeholder cq-marker-start" data-emptytext="Contact Us Component"></div>
+		</sly>
+
