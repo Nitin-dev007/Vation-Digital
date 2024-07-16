@@ -38,7 +38,7 @@ public class ExpireDateWorkflowProcess implements WorkflowProcess{
 		
 		try {
 			Map<String, Object> props= new HashMap<>();
-			props.put(factory.SUBSERVICE, "writeservice");
+			props.put(factory.SUBSERVICE, "aemgeeks-service-user");
 			ResourceResolver resolver = factory.getServiceResourceResolver(props);
 			
 			Resource resource = resolver.getResource(payload+"/jcr:content");
