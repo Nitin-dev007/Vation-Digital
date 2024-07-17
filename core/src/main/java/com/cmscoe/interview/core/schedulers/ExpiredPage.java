@@ -8,6 +8,11 @@ import java.util.Map;
 
 import javax.jcr.Session;
 
+import org.osgi.service.metatype.annotations.Designate;
+import org.osgi.service.component.annotations.Activate;
+import org.osgi.service.component.annotations.Modified;
+import com.cmscoe.interview.core.config.CronJob;
+
 import org.apache.sling.api.resource.LoginException;
 import org.apache.sling.api.resource.ResourceResolver;
 import org.apache.sling.api.resource.ResourceResolverFactory;
@@ -23,18 +28,25 @@ import com.day.cq.replication.Replicator;
 import com.day.cq.wcm.api.Page;
 import com.day.cq.wcm.api.PageManager;
 
-@Component(
-		service=Runnable.class,
-		property = {"scheduler.expression=*/10 * * * * ?"}
-		)
+@Component(service = Runnable.class, immediate = true)
+@Designate(ocd = CronJob.class)
 public class ExpiredPage implements Runnable{
 
 	Logger logger = LoggerFactory.getLogger(this.getClass());
+	
+	private String cronExpression;
 	
 	@Reference
 	private ResourceResolverFactory factory;
 	@Reference
 	private Replicator replicator;
+	
+	@Activate
+	@Modified
+	protected void activate(final CronJob cronJob) {
+	  cronExpression = cronJob.scheduler_expression();
+	}
+	
 	@Override
 	public void run() {
 		logger.info("Scheduler is executing every after 10 sec");
