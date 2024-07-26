@@ -12,6 +12,7 @@ import javax.jcr.ValueFormatException;
 import javax.servlet.Servlet;
 import javax.servlet.ServletException;
 
+import org.apache.commons.lang3.StringEscapeUtils;
 import org.apache.sling.api.SlingHttpServletRequest;
 import org.apache.sling.api.SlingHttpServletResponse;
 import org.apache.sling.api.resource.Resource;
@@ -85,22 +86,26 @@ public class SimpleFormServlet extends SlingSafeMethodsServlet {
 			}
 			
 		} catch (PathNotFoundException e) {
-			logger.error("PathNotFoundException while handling form data creation for name: {}", name, e);
-		} catch (ValueFormatException e) {
-			logger.error("ValueFormatException while handling form data creation for name: {}", name, e);
-		} catch (RepositoryException e) {
-			logger.error("RepositoryException while handling form data creation for name: {}", name, e);
-		} catch (Exception e) {
-			logger.error("Unexpected error while handling form data creation for name: {}", name, e);
-		}  finally {
+            logger.error("PathNotFoundException while handling form data creation for name: {}", name, e);
+        } catch (ValueFormatException e) {
+            logger.error("ValueFormatException while handling form data creation for name: {}", name, e);
+        } catch (RepositoryException e) {
+            logger.error("RepositoryException while handling form data creation for name: {}", name, e);
+        } catch (IllegalStateException e) {
+            logger.error("IllegalStateException while handling form data creation for name: {}", name, e);
+        } catch (IllegalArgumentException e) {
+            logger.error("IllegalArgumentException while handling form data creation for name: {}", name, e);
+        } catch (Exception e) {
+            logger.error("Unexpected error while handling form data creation for name: {}", name, e);
+        } finally {
 			try {
 				session.save();
 			} catch (RepositoryException e) {
 				logger.error("RepositoryException while saving session", e);
 			}
 		}
-		response.getWriter().print(name + email + subject + message);
-		response.getWriter().close();
+		response.getWriter().print(StringEscapeUtils.escapeHtml4(name + email + subject + message));
+        response.getWriter().close();
 	}
 
 }

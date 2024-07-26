@@ -41,7 +41,7 @@ public class FormDataTableModel {
 	private List<FormDataModel> formDataList =  new ArrayList<>();
 	
 	public List<FormDataModel> getFormDataList() {
-		return formDataList;
+		return new ArrayList<>(formDataList); // Return a copy of the list
 	}
 	
 	@PostConstruct

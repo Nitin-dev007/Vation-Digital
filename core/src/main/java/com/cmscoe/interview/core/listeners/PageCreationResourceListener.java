@@ -9,6 +9,7 @@ import org.apache.sling.api.resource.ResourceResolverFactory;
 import org.apache.sling.api.resource.ResourceResolver;
 import org.apache.sling.api.resource.PersistenceException;
 import org.apache.sling.api.resource.Resource;
+import org.apache.sling.api.resource.ResourceNotFoundException;
 import org.osgi.service.component.annotations.Component;
 import org.osgi.service.component.annotations.Reference;
 import org.slf4j.Logger;
@@ -22,8 +23,6 @@ import com.adobe.granite.workflow.exec.WorkflowData;
 
 import java.util.HashMap;
 import java.util.Map;
-
-import javax.jcr.LoginException;
 
 @Component(service = ResourceChangeListener.class,
            property = {
@@ -53,9 +52,11 @@ public class PageCreationResourceListener implements ResourceChangeListener {
                         // Trigger the workflow
                         startWorkflow(resourceResolver, path);
                     }
+                } catch (ResourceNotFoundException e) {
+                log.error("ResourceNotFoundException while handling page creation event at: {}", path, e);
                 } catch (Exception e) {
-                    log.error("Unexpected error while handling page creation event at: {}", path, e);
-                }
+                log.error("Unexpected error while handling page creation event at: {}", path, e);
+            }
             }
         }
     }

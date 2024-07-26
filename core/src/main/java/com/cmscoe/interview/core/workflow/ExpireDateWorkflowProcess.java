@@ -65,10 +65,11 @@ public class ExpireDateWorkflowProcess implements WorkflowProcess{
             logger.error("LoginException while obtaining resource resolver: {}", e.getMessage(), e);
         } catch (RepositoryException e) {
             logger.error("RepositoryException while setting node properties: {}", e.getMessage(), e);
+        } catch (IllegalArgumentException e) {
+            logger.error("IllegalArgumentException occurred: {}", e.getMessage(), e);
         } catch (Exception e) {
             logger.error("Unexpected exception occurred: {}", e.getMessage(), e);
         }
-		
 	}
 
 }

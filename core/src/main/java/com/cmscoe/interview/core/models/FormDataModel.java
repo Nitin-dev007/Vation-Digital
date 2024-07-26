@@ -1,5 +1,7 @@
 package com.cmscoe.interview.core.models;
 
+import java.util.ArrayList;
+
 import javax.annotation.Resource;
 
 import org.apache.sling.models.annotations.DefaultInjectionStrategy;
@@ -8,6 +10,7 @@ import org.apache.sling.models.annotations.injectorspecific.ValueMapValue;
 
 import lombok.Getter;
 import lombok.Setter;
+import java.util.List;
 
 @Model(adaptables = Resource.class, defaultInjectionStrategy = DefaultInjectionStrategy.OPTIONAL)
 @Getter
@@ -22,6 +25,29 @@ public class FormDataModel {
     private String message;
     @ValueMapValue
     private String subject;
+
+	private static final List<FormDataModel> formDataList = new ArrayList<>();
+
+	// Add a new entry to the list
+    public void addToList(FormDataModel formData) {
+        synchronized (formDataList) {
+            formDataList.add(formData);
+        }
+    }
+
+	// Get a copy of the list
+    public List<FormDataModel> getFormDataList() {
+        synchronized (formDataList) {
+            return new ArrayList<>(formDataList);
+        }
+    }
+
+	// Clear the list (if needed)
+    public void clearFormDataList() {
+        synchronized (formDataList) {
+            formDataList.clear();
+        }
+    }
     
 	public String getMessage() {
 		return message;
