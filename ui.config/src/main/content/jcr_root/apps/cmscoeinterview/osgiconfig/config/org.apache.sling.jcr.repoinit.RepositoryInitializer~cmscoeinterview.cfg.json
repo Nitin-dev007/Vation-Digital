@@ -1,7 +1,0 @@
-{
-    "scripts": [
-        "create path (sling:OrderedFolder) /content/dam/cmscoeinterview",
-        "create path (nt:unstructured) /content/dam/cmscoeinterview/jcr:content",
-        "set properties on /content/dam/cmscoeinterview/jcr:content\n  set cq:conf{String} to /conf/cmscoeinterview\n  set jcr:title{String} to \"AEM CMSCoE Interview Process\"\nend"
-    ]
-}
