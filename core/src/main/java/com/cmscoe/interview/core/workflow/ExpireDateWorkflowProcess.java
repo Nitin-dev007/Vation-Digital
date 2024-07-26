@@ -21,12 +21,17 @@ import com.adobe.granite.workflow.WorkflowSession;
 import com.adobe.granite.workflow.exec.WorkItem;
 import com.adobe.granite.workflow.exec.WorkflowProcess;
 import com.adobe.granite.workflow.metadata.MetaDataMap;
+import com.day.cq.commons.jcr.JcrConstants;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 @Component(
 		service=WorkflowProcess.class,
 		property = {"process.label=Update Expire Date property for page"}
 		)
 public class ExpireDateWorkflowProcess implements WorkflowProcess{
+
+	private static final Logger logger = LoggerFactory.getLogger(ExpireDateWorkflowProcess.class);
 
 	@Reference
 	private ResourceResolverFactory factory;
@@ -41,7 +46,7 @@ public class ExpireDateWorkflowProcess implements WorkflowProcess{
 			props.put(factory.SUBSERVICE, "aemgeeks-service-user");
 			ResourceResolver resolver = factory.getServiceResourceResolver(props);
 			
-			Resource resource = resolver.getResource(payload+"/jcr:content");
+			Resource resource = resolver.getResource(payload+"/"+JcrConstants.JCR_CONTENT);
 			if (resource != null && payload != null) {
 				Node node = resource.adaptTo(Node.class);
 				Calendar cal = Calendar.getInstance();
@@ -56,9 +61,13 @@ public class ExpireDateWorkflowProcess implements WorkflowProcess{
 				
 				node.getSession().save();				
 			}
-		} catch (LoginException | RepositoryException e) {
-			e.printStackTrace();
-		}
+		} catch (LoginException e) {
+            logger.error("LoginException while obtaining resource resolver: {}", e.getMessage(), e);
+        } catch (RepositoryException e) {
+            logger.error("RepositoryException while setting node properties: {}", e.getMessage(), e);
+        } catch (Exception e) {
+            logger.error("Unexpected exception occurred: {}", e.getMessage(), e);
+        }
 		
 	}
 

@@ -39,7 +39,6 @@ import java.util.Objects;
 public class GetFormDetailServlet extends SlingSafeMethodsServlet{
 
 	private static final long serialVersionUID = 1L;
-	Logger logger = LoggerFactory.getLogger(this.getClass());
 	
 	private static String PAGE_PATH = "/content/dam/cmscoeinterview/content-fragement/form-data/jcr:content/data/master"; 
 	

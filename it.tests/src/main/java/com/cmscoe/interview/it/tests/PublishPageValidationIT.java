@@ -78,6 +78,7 @@ public class PublishPageValidationIT {
         adminPublish = cqBaseClassRule.publishRule.getAdminClient(CQClient.class).adaptTo(HtmlUnitClient.class);
     }
 
+    @SuppressWarnings("deprecation")
     @AfterClass
     public static void afterClass() {
         closeQuietly(adminPublish);

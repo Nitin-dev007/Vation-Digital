@@ -27,6 +27,7 @@ import com.day.cq.replication.ReplicationException;
 import com.day.cq.replication.Replicator;
 import com.day.cq.wcm.api.Page;
 import com.day.cq.wcm.api.PageManager;
+import com.day.cq.wcm.api.NameConstants;
 
 @Component(service = Runnable.class, immediate = true)
 @Designate(ocd = CronJob.class)
@@ -66,8 +67,8 @@ public class ExpiredPage implements Runnable{
 				while(childPage.hasNext()) {
 					Page page = childPage.next();
 					ValueMap pageProps = page.getProperties();
-					Calendar offTime = pageProps.get("offTime", Calendar.class);
-					String pageStatus = pageProps.get("cq:lastReplicationAction", String.class);
+					Calendar offTime = pageProps.get(NameConstants.PN_OFF_TIME, Calendar.class);
+					String pageStatus = pageProps.get(NameConstants.PN_PAGE_LAST_REPLICATION_ACTION, String.class);
 					Date currentDate = new Date();
 					logger.info("page url - {}", page.getPath());
 					if (offTime != null && pageStatus!=null && pageStatus.equals("Activate") && currentDate.compareTo(offTime.getTime()) > 0) {
@@ -79,8 +80,7 @@ public class ExpiredPage implements Runnable{
 			}
 			
 		} catch (LoginException | ReplicationException e) {
-			logger.error("Error while deactivating pages {}", e.getMessage());
-			e.printStackTrace();
+			logger.error("Error while deactivating page at {}: {}", e.getMessage(), e);
 		}
 		
 		

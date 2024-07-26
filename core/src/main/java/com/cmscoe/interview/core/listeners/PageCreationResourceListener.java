@@ -7,6 +7,7 @@ import org.apache.sling.api.resource.observation.ResourceChange;
 import org.apache.sling.api.resource.observation.ResourceChangeListener;
 import org.apache.sling.api.resource.ResourceResolverFactory;
 import org.apache.sling.api.resource.ResourceResolver;
+import org.apache.sling.api.resource.PersistenceException;
 import org.apache.sling.api.resource.Resource;
 import org.osgi.service.component.annotations.Component;
 import org.osgi.service.component.annotations.Reference;
@@ -20,8 +21,9 @@ import com.day.cq.workflow.WorkflowService;
 import com.adobe.granite.workflow.exec.WorkflowData;
 
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
+
+import javax.jcr.LoginException;
 
 @Component(service = ResourceChangeListener.class,
            property = {
@@ -52,7 +54,7 @@ public class PageCreationResourceListener implements ResourceChangeListener {
                         startWorkflow(resourceResolver, path);
                     }
                 } catch (Exception e) {
-                    log.error("Error handling page creation event at: {}", path, e);
+                    log.error("Unexpected error while handling page creation event at: {}", path, e);
                 }
             }
         }
