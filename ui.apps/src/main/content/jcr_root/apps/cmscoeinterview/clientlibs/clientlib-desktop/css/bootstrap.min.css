@@ -6657,14 +6657,6 @@ fieldset:disabled .btn {
     background-size: 100% 100%
 }
 
-.carousel-control-prev-icon {
-    background-image: url("/content/dam/carousel/arrow-sm-left-svgrepo-com.svg")
-}
-
-.carousel-control-next-icon {
-    background-image: url("/content/dam/carousel/arrow-sm-right-svgrepo-com.svg")
-}
-
 .carousel-indicators {
     position: absolute;
     right: 0;
