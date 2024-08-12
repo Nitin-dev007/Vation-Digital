@@ -6522,6 +6522,14 @@ fieldset:disabled .btn {
     color: #686A6F
 }
 
+.carousel-control-prev-icon {
+    background-image: url("/content/dam/cmscoeinterview/carousel/arrow_back_ios_24dp_CCCCCC_FILL0_wght400_GRAD0_opsz24.svg")
+}
+ 
+.carousel-control-next-icon {
+    background-image: url("/content/dam/cmscoeinterview/carousel/arrow_forward_ios_24dp_CCCCCC_FILL0_wght400_GRAD0_opsz24.svg")
+}
+
 .carousel {
     position: relative
 }
