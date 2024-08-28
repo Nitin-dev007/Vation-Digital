@@ -40,8 +40,8 @@
                 </div>
                 <nav class="navbar navbar-expand-lg bg-dark navbar-dark p-3 p-lg-0 px-lg-5">
                     <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse" >
-                        <div class="navbar-nav mr-auto py-0" data-sly-list="${navigationModel.titleList}">
-                            <a href="${item.url}" class="nav-item nav-link active">${item.title}</a>
+                        <div class="navbar-nav mr-auto py-0" data-sly-list="${navigationModel.titleList}">    
+                            <a href="${item.url}" class="nav-item nav-link">${item.title}</a>
                         </div>
                         <a href="${navigationModel.buttonUrl}" class="btn btn-primary py-md-3 px-md-5 d-none d-lg-block">${navigationModel.buttonText}</a>
                     </div>
@@ -49,3 +49,19 @@
             </div>
         </div>
     </div>
+    
+<script>
+    // Get all the nav links
+    const navLinks = document.querySelectorAll('.nav-item.nav-link');
+
+    // Add click event listener to each link
+    navLinks.forEach(link => {
+        link.addEventListener('click', function() {
+            // Remove the 'active' class from all links
+            navLinks.forEach(item => item.classList.remove('active'));
+
+            // Add the 'active' class to the clicked link
+            this.classList.add('active');
+        });
+    });
+</script>
