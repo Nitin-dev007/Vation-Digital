@@ -219,3 +219,7 @@ h6,
         background: var(--primary);
     }
 }
+
+.bg-dark.p-5 {
+    width: 945px;
+}

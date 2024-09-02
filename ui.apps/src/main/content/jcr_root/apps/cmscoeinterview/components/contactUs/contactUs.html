@@ -1,0 +1,66 @@
+<!-- Contact Start -->
+<div data-sly-use.contactObj="com.cmscoe.interview.core.models.ContactUsModel">
+    <div class="container-fluid p-5">
+        <div class="row g-0">
+            <div class="col-lg-6">
+                <div class="bg-dark p-5">
+                    <form id="contactForm">
+                        <input type="hidden" name="path" id="formPath">
+                        <div class="row g-3">
+                            <div class="col-6">
+                                <input type="text" class="form-control bg-light border-0 px-4" placeholder="${contactObj.name}" value="" name="name" style="height: 55px;">
+                            </div>
+                            <div class="col-6">
+                                <input type="email" class="form-control bg-light border-0 px-4" placeholder="${contactObj.email}" value="" name="email" style="height: 55px;">
+                            </div>
+                            <div class="col-12">
+                                <input type="text" class="form-control bg-light border-0 px-4" placeholder="${contactObj.subject}" value="" name="subject" style="height: 55px;">
+                            </div>
+                            <div class="col-12">
+                                <textarea class="form-control bg-light border-0 px-4 py-3" rows="4" placeholder="${contactObj.message}" name="message"></textarea>
+                            </div>
+                            <div class="col-12">
+                                <button class="btn btn-primary w-100 py-3" type="submit">${contactObj.buttonText}</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Contact End -->
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        document.getElementById('contactForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            let form = document.getElementById('contactForm');
+            let formData = {};
+
+            // Iterate through all input elements inside the form
+            let inputs = form.querySelectorAll('input, textarea');
+            inputs.forEach(function(input) {
+                formData[input.name] = input.value; // Correctly retrieve the input values
+            });
+
+            // Add the path manually from the hidden input
+            formData.path = document.getElementById('formPath').value;
+
+            let xhr = new XMLHttpRequest();
+            xhr.open('POST', '/content/save', true); // Updated endpoint for the new servlet
+            xhr.setRequestHeader('Content-Type', 'application/json;charset=UTF-8');
+            xhr.onreadystatechange = function() {
+                if (xhr.readyState === 4 && xhr.status === 200) {
+                    alert('Form submitted successfully!');
+                    location.reload();
+                } else if (xhr.readyState === 4) {
+                    alert('Failed to submit the form.');
+                }
+            };
+            console.log(JSON.stringify(formData)); // Debugging line to check the payload
+            xhr.send(JSON.stringify(formData));
+        });
+    });
+</script>
