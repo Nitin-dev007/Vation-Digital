@@ -223,3 +223,8 @@ h6,
 .bg-dark.p-5 {
     width: 945px;
 }
+
+h1.m-0.display-4.text-primary.text-uppercase {
+    padding-left: 30px;
+    padding-top: 40px;
+}
